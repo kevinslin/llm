@@ -6,3 +6,4 @@
 !skills/**
 !CLAUDE.md
 !.gitignore
+.skillz-cache.json
