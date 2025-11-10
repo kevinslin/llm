@@ -3,8 +3,8 @@
 
 # Except these
 !skills/
+!README.md
 !skills/**
-!CLAUDE.md
 !.gitignore
 .skillz-cache.json
 skills/skill-creator
