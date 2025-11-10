@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# Except these
+!skills/
+!skills/**
+!CLAUDE.md
+!.gitignore
