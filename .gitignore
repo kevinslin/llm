@@ -7,4 +7,5 @@
 !skills/**
 !.gitignore
 .skillz-cache.json
+.DS_Store
 skills/skill-creator
