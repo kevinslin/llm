@@ -16,5 +16,3 @@ Learn from current session
 ## Guidelines
 
 1. summarize key learnings
-
-## Examples
