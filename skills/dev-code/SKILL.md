@@ -85,6 +85,8 @@ When changing program behavior:
 - Add unit tests sparingly - only for complex logic that needs isolation
 - Test error handling and boundary conditions
 - For TypeScript/JavaScript, use Jest
+- **For deterministic output, add snapshot tests** - snapshots provide excellent regression protection
+- When making changes, update snapshots if test output changes (`npm test -- -u`)
 
 Test-driven development approach:
 1. Write failing integration test first (recommended)

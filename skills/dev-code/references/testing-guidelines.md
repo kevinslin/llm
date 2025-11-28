@@ -833,24 +833,111 @@ test('creates timestamp', () => {
 
 ### Snapshot Testing
 
-Useful for testing component output or data structures:
+**For Jest tests with deterministic output, prefer to also add snapshot tests.** Snapshots provide excellent regression protection and are easy to maintain.
 
+Snapshots capture the entire output of a test and save it to a file. Future test runs compare against the saved snapshot to detect unexpected changes.
+
+**Example for CLI output:**
 ```javascript
-test('renders correctly', () => {
-  const tree = render(<UserProfile user={testUser} />);
-  expect(tree).toMatchSnapshot();
+test('init command creates correct config', async () => {
+  const result = await execCli(['init', '--preset', 'default'], {
+    cwd: testDir,
+  });
+
+  expect(result.exitCode).toBe(0);
+
+  // Also use snapshot for deterministic output
+  expect(result.stdout).toMatchSnapshot();
+
+  const config = await fs.readJson(path.join(testDir, 'config.json'));
+  expect(config).toMatchSnapshot();
 });
 ```
 
-**When to use:**
-- Testing React/Vue component rendering
-- Testing JSON/XML output
-- Testing generated files or documents
+**Example for generated file content:**
+```javascript
+test('build generates correct output files', async () => {
+  await execCli(['build'], { cwd: testDir });
 
-**When NOT to use:**
-- Snapshots are too large (hard to review)
-- Output changes frequently
-- Testing behavior (use assertions instead)
+  const outputFile = await fs.readFile(
+    path.join(testDir, 'dist', 'index.js'),
+    'utf-8'
+  );
+
+  // Snapshot the entire file content for deterministic builds
+  expect(outputFile).toMatchSnapshot();
+});
+```
+
+**Example for JSON/data structures:**
+```javascript
+test('formats user data correctly', () => {
+  const formatted = formatUserData(testUser);
+
+  // Use specific assertions for key properties
+  expect(formatted.id).toBe(123);
+
+  // Also snapshot the entire structure
+  expect(formatted).toMatchSnapshot();
+});
+```
+
+**When to use snapshots:**
+- **Deterministic output** - Output is the same every run (no timestamps, random IDs, etc.)
+- **CLI stdout/stderr** - Command line output that should be consistent
+- **Generated file content** - Files produced by build/transform processes
+- **Configuration files** - JSON, YAML, or other config output
+- **JSON/XML API responses** - Structured data output
+- **React/Vue component rendering** - UI component output
+- **Error messages** - Consistent error output format
+
+**When NOT to use snapshots:**
+- **Non-deterministic output** - Contains timestamps, random values, absolute paths
+- **Snapshots are too large** - Difficult to review in pull requests (>100 lines)
+- **Output changes frequently** - Requires constant snapshot updates
+- **External API responses** - Use mocks with deterministic data instead
+
+**Updating snapshots when making changes:**
+
+When you modify code that affects test output:
+1. **Review the snapshot diff** - Ensure changes are expected
+2. **Update snapshots** - Run `npm test -- -u` to update all snapshots
+3. **Commit updated snapshots** - Include snapshot changes in your commit
+4. **Review in PR** - Snapshot diffs should be reviewed like code changes
+
+```bash
+# Update all snapshots
+npm test -- -u
+
+# Update snapshots for specific test file
+npm test -- -u init.test.ts
+
+# Review snapshot changes before committing
+git diff tests/**/__snapshots__/
+```
+
+**Best practices:**
+- **Combine with specific assertions** - Use both snapshots and targeted assertions
+- **Keep snapshots readable** - If too large, consider testing smaller pieces
+- **Review snapshot diffs carefully** - Don't blindly approve snapshot updates
+- **Use inline snapshots for small values** - `expect(value).toMatchInlineSnapshot()`
+- **Clean deterministic data** - Strip timestamps/random values before snapshotting
+
+**Example of cleaning non-deterministic data:**
+```javascript
+test('creates log file with correct format', async () => {
+  await execCli(['run'], { cwd: testDir });
+
+  const logContent = await fs.readFile(
+    path.join(testDir, 'app.log'),
+    'utf-8'
+  );
+
+  // Remove timestamps before snapshotting
+  const normalized = logContent.replace(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/g, 'TIMESTAMP');
+  expect(normalized).toMatchSnapshot();
+});
+```
 
 ## Testing Anti-Patterns
 
@@ -1012,6 +1099,7 @@ When writing tests:
 - [ ] Exit codes and output messages are checked
 - [ ] Assertions are specific and meaningful
 - [ ] Test would fail if the user-facing behavior is broken
+- [ ] **Snapshot tests added for deterministic output** (Jest)
 - [ ] Unit tests added only for complex logic (if needed)
 
 When changing code:
@@ -1021,9 +1109,12 @@ When changing code:
 - [ ] Modified tests reflect changed behavior
 - [ ] Removed tests for removed functionality
 - [ ] Test coverage remains high (primarily through integration tests)
+- [ ] **Snapshots reviewed and updated if output changed** (`npm test -- -u`)
+- [ ] **Snapshot diffs reviewed to ensure changes are expected**
 
 **For TypeScript/JavaScript:**
 - [ ] Using Jest as the testing framework
 - [ ] Tests organized in tests/integration/ and tests/unit/ (sparingly)
 - [ ] Temporary test directories created and cleaned up properly
 - [ ] ESM modules handled properly (mock or use integration tests)
+- [ ] Snapshot tests added for deterministic CLI output, configs, and generated files
