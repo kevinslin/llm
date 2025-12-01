@@ -11,6 +11,7 @@ This skill helps you read, search, and create Dendron notes using the filesystem
 ## When to Use
 - Navigating or querying existing notes (filesystem or sqlite)
 - Creating new notes in the current vault
+- Creating report notes when user asks for a report
 - Running cross-vault queries only when explicitly requested
 
 ## Vault Selection
@@ -37,11 +38,43 @@ This skill helps you read, search, and create Dendron notes using the filesystem
 - List children under a hierarchy: filter filenames starting with `hierarchy.` and extract the next segment.
 - Create a new note: write a markdown file under `<vault>/notes/<fname>.md`; include frontmatter if needed.
 
+## Creating Report Notes
+
+When the user asks for a report, create a new report note with the following naming convention:
+
+**Format:** `report.{YYYY}.{MM}-{name-of-report}.md`
+
+**Steps:**
+1. Generate the current date in YYYY and MM format
+2. Create a descriptive, kebab-case name from the report topic
+3. Create the file at `<vault>/notes/report.{YYYY}.{MM}-{name}.md`
+4. Write the report content as markdown
+5. Include frontmatter with `id`, `title`, and `created` timestamp
+
+**Example:**
+For a report on "Weekly Scout Activities" in January 2025:
+- Filename: `report.2025.01-weekly-scout-activities.md`
+- Path: `<vault>/notes/report.2025.01-weekly-scout-activities.md`
+
+**Frontmatter Template:**
+```yaml
+---
+id: report.2025.01-weekly-scout-activities
+title: Weekly Scout Activities
+created: 1704067200000
+---
+```
+
+**Report Content:**
+Write the analysis, findings, or summary as structured markdown with appropriate headings, lists, and formatting.
+
 ## Examples to Support
 - “look at daily.* notes created in last week and look for terms matching scout”
   - Identify last 7 days daily files in the active vault (`daily.journal.YYYY.MM.DD`), then search contents for `scout`.
-- “extract all the 1st level children of pkg.* (should only get the name of the next dot delimited name)”
+- "extract all the 1st level children of pkg.* (should only get the name of the next dot delimited name)"
   - From filenames starting `pkg.`, return the segment immediately after `pkg` (unique, non-empty).
+- "create a report on weekly scout activities"
+  - Create a new note at `<vault>/notes/report.2025.11-weekly-scout-activities.md` with frontmatter and write the report content analyzing scout activities from recent daily notes.
 
 ## Safety & Scope
 - Do not modify files unless asked to create/update notes.
@@ -54,6 +87,7 @@ This skill helps you read, search, and create Dendron notes using the filesystem
 - SQLite daily search (active vault only):
   - `sqlite3 notes.db "SELECT fname FROM Note n JOIN Vault v ON n.vaultId=v.id WHERE v.fsPath='.' AND fname LIKE 'daily.journal.%' AND date(n.updated/1000,'unixepoch')>=date('now','-7 day') AND raw LIKE '%scout%';"`
 - Children of hierarchy via fs: `find <vault>/notes -name 'pkg.*.md' -maxdepth 1` then parse next segment.
+- Create report note: Generate filename `report.$(date +%Y).$(date +%m)-{kebab-case-name}.md` and write to `<vault>/notes/` with frontmatter.
 
 Follow these steps when responding:
 1) Assume target vault is the default active vault unless user mentions otherwise
