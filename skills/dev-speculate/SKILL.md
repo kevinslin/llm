@@ -1,5 +1,5 @@
 ---
-name: project-understanding
+name: dev.speculate
 description: Always use this skill to provide context on the codebase. Automatically initializes and references the Speculate documentation framework (coding rules, shortcuts, templates, and project specs) to ensure agents understand project structure, development workflows, and coding standards. Use for every task to maintain context and code quality.
 ---
 
@@ -38,9 +38,8 @@ The docs-overview provides:
 **IMPORTANT**: Throughout the Speculate documentation, paths prefixed with `@` indicate paths from the project root.
 
 For example:
-- `@docs/general/agent-rules/python-rules.md` → `/path/to/project/docs/general/agent-rules/python-rules.md`
-- `@docs/development.md` → `/path/to/project/docs/development.md`
-- `@shortcut:implement-spec.md` → `/path/to/project/docs/general/agent-shortcuts/shortcut:implement-spec.md`
+- `@docs/general/agent-rules/python-rules.md` → `docs/general/agent-rules/python-rules.md`
+- `@shortcut:implement-spec.md` → `docs/general/agent-shortcuts/shortcut:implement-spec.md`
 
 When you see these `@docs/...` or `@shortcut:...` references in the documentation, resolve them relative to the project root directory.
 
@@ -79,7 +78,10 @@ After initialization, these files are available:
 - `specs/active/` - Current feature specifications
 - `specs/done/` - Completed specs (historical reference)
 - `architecture/` - System design documentation
+- `flows/` - System flows documentation
 - `research/` - Technical research notes
+
+A note on flows. A flow is a like a mini architecture doc that describes the lifecycle of a behavior in the code base. For example, bootstraping a system could be a flow. The lifecylce of a particular API request could be another. Flows are meant to help llms and humans quickly recapture context on a particular part of the code. 
 
 ## Updating Documentation
 
@@ -109,6 +111,7 @@ This updates the `docs/general/` folder while preserving:
 - Use shortcuts for structured workflows (planning, implementation, commits, PRs)
 - Create specs in `docs/project/specs/active/` for new features
 - Document architecture decisions in `docs/project/architecture/`
+- Document new flows in `docs/project/flows/`
 
 ### For Spec-Driven Development
 

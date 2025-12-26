@@ -32,6 +32,7 @@ instructions.
 | Research or technical investigation | @shortcut:new-research-brief.md |
 | Creating architecture documentation | @shortcut:new-architecture-doc.md |
 | Updating/revising architecture docs | @shortcut:revise-architecture-doc.md |
+| Creating flow documentation| @shortcut:new-flow-doc.md |
 | Exploratory coding / prototype / spike | @shortcut:coding-spike.md |
 | Refining or clarifying an existing spec | @shortcut:refine-spec.md |
 | Updating a spec with new information | @shortcut:update-spec.md |
