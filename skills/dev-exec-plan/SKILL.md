@@ -1,6 +1,6 @@
 ---
 name: Execution Plan
-description: This skill should be used for complex development tasks that require detailed technical planning with persistent documentation. Use when the task involves architectural decisions, multi-phase implementation, external dependencies, or when the user explicitly requests a documented execution plan. For simple tasks with 3-5 steps, use TodoWrite instead.
+description: This skill should be used for development tasks that require detailed technical planning with persistent documentation. Use when the task involves architectural decisions, multi-phase implementation, external dependencies, or when the user explicitly requests an execution plan.
 version: 2.0.0
 ---
 
@@ -22,6 +22,8 @@ Use this skill when:
 ## Creating the Execution Plan
 
 ### 1. Determine Plan Location
+
+By default, the output of a plan should be in `docs/project/specs`
 
 Check if a planning directory structure exists in the current project:
 - Look for existing patterns: `docs/plans/`, `planning/`, `llm/sessions/`, or `.plans/`
