@@ -1,6 +1,6 @@
 # ImageKit Upload Skill
 
-A Claude Code skill for uploading images to ImageKit CDN from file paths or clipboard.
+A generic agent skill for uploading images to ImageKit CDN from file paths or clipboard.
 
 ## Setup
 
@@ -80,16 +80,16 @@ node scripts/upload.js --clipboard
 node scripts/upload.js --clipboard --name "screenshot-$(date +%Y%m%d)"
 ```
 
-## Using with Claude
+## Using with an Agent
 
-Once set up, you can use this skill by invoking it in Claude Code:
+Once set up, you can use this skill by invoking it in your agent environment:
 
 ```
 User: Upload this screenshot to ImageKit: /tmp/screenshot.png
-Claude: [Invokes skill and uploads the image]
+Agent: [Invokes skill and uploads the image]
 
 User: I just copied an image, upload it to ImageKit
-Claude: [Uses --clipboard flag to upload from clipboard]
+Agent: [Uses --clipboard flag to upload from clipboard]
 ```
 
 ## Troubleshooting

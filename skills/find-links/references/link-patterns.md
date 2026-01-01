@@ -95,7 +95,7 @@ Best for:
 
 **Examples:**
 - Model Context Protocol → https://www.anthropic.com/news/model-context-protocol
-- Claude Code → https://docs.claude.com/en/docs/claude-code
+- AI assistant → https://en.wikipedia.org/wiki/AI_assistant
 - Docker → https://www.docker.com/
 
 ### 4. Official Announcements/Blogs

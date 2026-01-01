@@ -21,7 +21,7 @@ Today's developers rely on many tools:
 We use [Git]({TODO - version control system}) to manage our code. Git was created by [Linus Torvalds]({TODO}) and has become the industry standard.
 
 ### AI Assistants
-Tools like [Claude Code]({LINK to documentation}) and [GitHub Copilot]() have changed how we write code. These tools are powered by [large language models]({TODO}).
+Tools like [AI coding assistants]({LINK to documentation}) and [GitHub Copilot]() have changed how we write code. These tools are powered by [large language models]({TODO}).
 
 ### Containerization
 [Docker]({LINK}) has become essential for creating reproducible development environments. It's based on concepts from [operating system virtualization]({TODO}).

@@ -40,7 +40,7 @@ gh auth status
 ## Usage
 
 **Important**: Always specify `-R owner/repo` since git remotes may use a proxy.
-(This is needed for example by Claude Code Web.)
+(This is needed for example by web-based agent environments.)
 
 ```bash
 # List PRs
@@ -62,7 +62,7 @@ gh api repos/owner/repo/pulls/123/comments
 
 ## GitHub Access Token Setup (For User Only)
 
-To set up permissions so agents (like Claude Code Web) may edit GitHub issues and check
+To set up permissions so agents (like web-based agent environments) may edit GitHub issues and check
 workflows using `gh`, create an access token at https://github.com/settings/tokens
 
 - For simplicity: Classic PAT with repo and workflow scope.

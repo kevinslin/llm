@@ -1,6 +1,6 @@
 ---
 name: gen-notifier
-description: Send desktop notifications when tasks are complete. This skill should be used whenever an agent finishes a task or when the user explicitly tells you to notify them. By default, assume that all jobs will require a notification unless the user says otherwise.
+description: Generic desktop notification skill for agents. Send desktop notifications when tasks are complete (or when user input/errors block progress). By default, assume that all jobs will require a notification unless the user says otherwise.
 version: 1.0.0
 ---
 

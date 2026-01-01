@@ -12,7 +12,7 @@ bd status || echo "bd not installed"
 **If bd is not installed:**
 
 Note: `npm install -g @beads/bd` and `go install` methods exist but typically fail in
-cloud environments (Claude Code web, containers) due to network restrictions.
+cloud environments (web-based agents, containers) due to network restrictions.
 Use the direct download method:
 
 ```bash

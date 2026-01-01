@@ -23,20 +23,17 @@ Use this skill when:
 
 ### 1. Determine Plan Location
 
-By default, the output of a plan should be in `docs/project/specs`
+By default, the output of a plan should be in `docs/project/specs/active`
 
-Check if a planning directory structure exists in the current project:
-- Look for existing patterns: `docs/plans/`, `planning/`, `llm/sessions/`, or `.plans/`
-- If no standard location exists, store the plan in `llm/plans/{YYYY-MM-DD}-{title}/`
+### 2. Create Plan File and optionally, checkout a new branch
 
-### 2. Create Plan Directory and File
-
-Create a folder with a descriptive name:
+Create the plan using the template from `assets/plan-template.md` in the following location:
 ```
-{chosen-path}/{YYYY-MM-DD}-{title-in-kebab-case}/
+{plan-directory}/{YYYY-MM-DD}-{title-in-kebab-case}.md
 ```
 
-Inside that folder, create `plan.md` using the template from `assets/plan-template.md`.
+Optionally, checkout a new branch with same name as the plan: `{YYYY-MM-DD}-{title-in-kebab-case}`
+ONLY do this if user explicitly asks to create plan in a new branch. 
 
 ### 3. Populate the Plan
 

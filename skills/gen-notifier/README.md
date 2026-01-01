@@ -1,10 +1,10 @@
 # Task Completion Notifier Skill
 
-A Claude Code skill that sends desktop notifications when tasks are complete using terminal-notifier.
+A generic agent skill that sends desktop notifications when tasks are complete using terminal-notifier.
 
 ## Overview
 
-This skill enables Claude to notify you via desktop notifications when tasks are done, need input, or encounter errors. By default, all jobs assigned to Claude will trigger a notification when complete.
+This skill enables an agent to notify you via desktop notifications when tasks are done, need input, or encounter errors. By default, all jobs assigned to the agent will trigger a notification when complete.
 
 ## Installation
 
@@ -24,13 +24,13 @@ which terminal-notifier
 The skill is automatically invoked when:
 
 1. You explicitly ask to be notified ("notify me when done")
-2. Claude completes a long-running task
-3. Claude needs your input to proceed
-4. Claude encounters errors that block progress
+2. The agent completes a long-running task
+3. The agent needs your input to proceed
+4. The agent encounters errors that block progress
 
 ### Automatic Behavior
 
-By default, assume all jobs will generate a notification. Claude will send notifications at the end of tasks without you having to ask.
+By default, assume all jobs will generate a notification. The agent will send notifications at the end of tasks without you having to ask.
 
 ### Notification Format
 
@@ -51,7 +51,7 @@ terminal-notifier -title "{JOB_DESCRIPTION}" -message "{STATUS}"
 User: "Implement the user dashboard and notify me when you're done"
 ```
 
-Claude will complete the work and send:
+The agent will complete the work and send:
 ```bash
 terminal-notifier -title "User Dashboard Implementation" -message "completed"
 ```
@@ -62,7 +62,7 @@ terminal-notifier -title "User Dashboard Implementation" -message "completed"
 User: "Run the full test suite and fix any failures"
 ```
 
-Claude will execute tests, attempt fixes, and send:
+The agent will execute tests, attempt fixes, and send:
 ```bash
 terminal-notifier -title "Test Suite and Fixes" -message "completed"
 ```
@@ -73,7 +73,7 @@ terminal-notifier -title "Test Suite and Fixes" -message "completed"
 User: "Set up authentication"
 ```
 
-If Claude needs to choose between OAuth or JWT, it sends:
+If the agent needs to choose between OAuth or JWT, it sends:
 ```bash
 terminal-notifier -title "Authentication Setup" -message "needs_input"
 ```
@@ -94,7 +94,7 @@ terminal-notifier -title "Production Deployment" -message "errors"
 - **Automatic notifications** - Default behavior for all tasks
 - **Clear status indicators** - completed, needs_input, or errors
 - **Concise titles** - Understand what finished at a glance
-- **End-of-turn notifications** - Sent when Claude is done or blocked
+- **End-of-turn notifications** - Sent when the agent is done or blocked
 - **No spam** - One notification per task, not per step
 
 ## Configuration
@@ -103,7 +103,7 @@ No configuration needed. The skill is ready to use once terminal-notifier is ins
 
 ## Disabling Notifications
 
-If you don't want notifications for a specific task, tell Claude:
+If you don't want notifications for a specific task, tell the agent:
 
 ```
 User: "Run tests but don't notify me"

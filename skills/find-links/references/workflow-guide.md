@@ -21,7 +21,7 @@ Found 5 TODO links:
 2. [object-oriented programming]({LINK}) - line 12
 3. [Git]({TODO - version control system}) - line 18
 4. [Linus Torvalds]({TODO}) - line 18
-5. [Claude Code]({LINK to documentation}) - line 23
+5. [AI coding assistants]({LINK to documentation}) - line 23
 ```
 
 ### 2. Research Each Link
@@ -40,7 +40,7 @@ Found 5 TODO links:
 **Example search queries:**
 - For `[Ada Lovelace]({TODO})` → "Ada Lovelace computer science"
 - For `[Git]({TODO - version control system})` → "Git version control official"
-- For `[Claude Code]({LINK to documentation})` → "Claude Code documentation"
+- For `[AI coding assistants]({LINK to documentation})` → "AI coding assistant documentation"
 
 ### 3. Validate Sources
 
@@ -99,7 +99,7 @@ Filled 5 TODO links in the document:
 2. Line 12: Object-oriented programming → Wikipedia (general concept)
 3. Line 18: Git → Official Git website (software tool)
 4. Line 18: Linus Torvalds → Wikipedia (notable person)
-5. Line 23: Claude Code → Official docs (product documentation)
+5. Line 23: AI coding assistants → Wikipedia (general concept)
 
 All links verified and working.
 ```
@@ -168,7 +168,7 @@ Use TodoWrite effectively:
 - Scan file for TODO links (pending)
 - Fill link: Ada Lovelace (pending)
 - Fill link: Git (pending)
-- Fill link: Claude Code (pending)
+- Fill link: AI coding assistants (pending)
 - Provide summary (pending)
 ```
 
@@ -177,7 +177,7 @@ Use TodoWrite effectively:
 - Scan file for TODO links (completed)
 - Fill link: Ada Lovelace (in_progress)
 - Fill link: Git (pending)
-- Fill link: Claude Code (pending)
+- Fill link: AI coding assistants (pending)
 - Provide summary (pending)
 ```
 
@@ -186,7 +186,7 @@ Use TodoWrite effectively:
 - Scan file for TODO links (completed)
 - Fill link: Ada Lovelace (completed)
 - Fill link: Git (completed)
-- Fill link: Claude Code (completed)
+- Fill link: AI coding assistants (completed)
 - Provide summary (completed)
 ```
 

@@ -69,7 +69,7 @@ code/
 
 ## Usage
 
-This skill is designed to be automatically invoked by Claude when performing coding tasks. The skill provides:
+This skill is designed to be automatically invoked by an agent when performing coding tasks. The skill provides:
 
 1. **In-context guidance** - Workflow and best practices in SKILL.md
 2. **Deep-dive references** - Detailed security and testing guidelines loaded as needed
