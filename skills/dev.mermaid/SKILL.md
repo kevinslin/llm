@@ -1,5 +1,5 @@
 ---
-name: dev-mermaid
+name: dev.mermaid
 description: Generate Mermaid diagrams with proper syntax. Use when creating flowcharts, sequence diagrams, class diagrams, or any other Mermaid visualizations. Ensures correct label quoting to prevent parsing errors.
 ---
 

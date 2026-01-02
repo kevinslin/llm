@@ -1,5 +1,5 @@
 ---
-name: gh
+name: dev.gh
 description: GitHub CLI operations
 version: 1.0.0
 ---

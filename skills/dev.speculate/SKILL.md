@@ -14,7 +14,7 @@ Look for `docs/docs-overview.md` in the current project.
 If it doesn't exist, initialize now using the install script
 
 ```bash
-node ~/.claude/skills/dev-speculate/scripts/install.js
+node ~/.claude/skills/dev.speculate/scripts/install.js
 ```
 
 This copies the complete Speculate documentation structure to `docs/`:
@@ -88,7 +88,7 @@ A note on flows. A flow is a like a mini architecture doc that describes the lif
 To sync with the latest Speculate documentation:
 
 ```bash
-node ~/.claude/skills/dev-speculate/scripts/update.js
+node ~/.claude/skills/dev.speculate/scripts/update.js
 ```
 
 This updates the `docs/general/` folder while preserving:

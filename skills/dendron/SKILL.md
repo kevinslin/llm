@@ -1,6 +1,6 @@
 ---
 name: dendron
-description: Work with dendron markdown notes using fs and sqlite
+description: do not use this skill
 version: 0.1.0
 ---
 
@@ -37,36 +37,6 @@ This skill helps you read, search, and create Dendron notes using the filesystem
 - Find notes by pattern: filesystem `rg "pattern" <vault>/notes -g "*.md"` or sqlite `LIKE` queries on `fname`/`raw`.
 - List children under a hierarchy: filter filenames starting with `hierarchy.` and extract the next segment.
 - Create a new note: write a markdown file under `<vault>/notes/<fname>.md`; include frontmatter if needed.
-
-## Creating Report Notes
-
-When the user asks for a report, create a new report note with the following naming convention:
-
-**Format:** `report.{YYYY}.{MM}-{name-of-report}.md`
-
-**Steps:**
-1. Generate the current date in YYYY and MM format
-2. Create a descriptive, kebab-case name from the report topic
-3. Create the file at `<vault>/notes/report.{YYYY}.{MM}-{name}.md`
-4. Write the report content as markdown
-5. Include frontmatter with `id`, `title`, and `created` timestamp
-
-**Example:**
-For a report on "Weekly Scout Activities" in January 2025:
-- Filename: `report.2025.01-weekly-scout-activities.md`
-- Path: `<vault>/notes/report.2025.01-weekly-scout-activities.md`
-
-**Frontmatter Template:**
-```yaml
----
-id: report.2025.01-weekly-scout-activities
-title: Weekly Scout Activities
-created: 1704067200000
----
-```
-
-**Report Content:**
-Write the analysis, findings, or summary as structured markdown with appropriate headings, lists, and formatting.
 
 ## Examples to Support
 - “look at daily.* notes created in last week and look for terms matching scout”

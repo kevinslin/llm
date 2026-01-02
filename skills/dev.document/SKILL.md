@@ -1,5 +1,5 @@
 ---
-name: dev-document
+name: dev.document
 description: document changes made
 version: 0.0.0
 ---

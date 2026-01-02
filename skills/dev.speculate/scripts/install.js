@@ -119,7 +119,7 @@ function install() {
   console.log('   3. Start using shortcuts from docs/general/agent-shortcuts/');
   console.log('');
   console.log('🎯 To update docs later, run:');
-  console.log('   node ~/.claude/skills/dev-speculate/scripts/update.js');
+  console.log('   node ~/.claude/skills/dev.speculate/scripts/update.js');
   console.log('');
 }
 

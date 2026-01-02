@@ -1,5 +1,5 @@
 ---
-name: lint
+name: dev.lint
 description: lint project
 version: 0.0.0
 ---

@@ -1,5 +1,5 @@
 ---
-name: code
+name: dev.code
 description: This skill should be used when performing any coding task including implementing features, fixing bugs, refactoring code, or making any modifications to source code. Provides best practices, security considerations, testing guidelines, and a structured workflow for development tasks.
 version: 1.0.0
 ---
