@@ -32,8 +32,11 @@ Create the plan using the template from `assets/plan-template.md` in the followi
 {plan-directory}/{YYYY-MM-DD}-{title-in-kebab-case}.md
 ```
 
-Optionally, checkout a new branch with same name as the plan: `{YYYY-MM-DD}-{title-in-kebab-case}`
-ONLY do this if user explicitly asks to create plan in a new branch. 
+Optionally, checkout a new branch with the following name: `dev/{YYYY-MM-DD}-{title-in-kebab-case}`. ONLY do this if user explicitly asks to create plan in a new branch. 
+
+Example:
+- plan: 2025-12-01-create-new-foo.md
+- branch-name: `dev/2025-12-01-create-new-foo`
 
 ### 3. Populate the Plan
 
@@ -84,6 +87,14 @@ After creating the plan:
 2. Highlight any questions or decisions that need input
 3. Wait for user confirmation before proceeding with implementation
 4. Update the plan as new information emerges during execution
+
+### 6. User revision (optional)
+
+If the user asks for additional details - write your response into the existing execution plan instead of responding in the conversation. 
+
+### 7. Proceeding with the plan
+
+When the user asks you to proceed with the plan, re-read it to check if anything has changed. Also make sure that all questions that were asked are answered by the user (user will have checked off the question box and added an answer as a bullet point below). If not, prompt the user for answers before proceeding.
 
 ## Best Practices
 
